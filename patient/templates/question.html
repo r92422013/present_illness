@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>傳送 POST 參數</title>
+</head>
+<body>
+   <p>就診前資料收集</p>
+   <form method='post' action="/question/">
+   	  {% csrf_token %}
+      <fieldset>
+         <legend>個人資料:</legend>
+         姓名:
+         <input type="text" name="NAME">
+         <br> 身分證字號:
+         <input type="text" name="ID">      
+         <br> 性別:
+         <input type="radio" name="GENDER" value="male" checked> 男性
+         <input type="radio" name="GENDER" value="female"> 女性
+         <br> 年齡  (請以整數回答實際歲數)
+         <input type="text" name="AGE">歲
+      </fieldset>
+      <fieldset>
+         <legend>病人陳述之症狀</legend>
+         你感到不舒服的地方在哪裡?
+         <select name="WHERE">
+           <option value="upper right posterior" >右上後方區域</option>
+           <option value="upper left posterior" >左上後方區域</option>
+           <option value="lower right posterior" >右下後方區域</option>
+           <option value="lower left posterior" >左下後方區域</option>
+           <option value="upper anterior" >上顎前區</option>
+           <option value="lower anterior" >下顎前區</option>
+         </select>
+         <br> 疼痛的位置:
+         <input type="radio" name="PAINSITE" value="teeth" checked> 牙齒
+         <input type="radio" name="PAINSITE" value="gingiva"> 牙齦
+         <input type="radio" name="PAINSITE" value="area"> 其他
+         <br>什麼時候開始不舒服的?
+         <select name="WHEN">
+           <option value="today" >今天</option>
+           <option value="within 3 days" >一到三天內</option>
+           <option value="about 1 week ago" >一周左右</option>
+           <option value="more than 1 week ago" >超過一周</option>        
+         </select>
+         <br>發病方式怎麼樣?
+         <input type="radio" name="HOW" value="abruptly" checked> 突然地(有外物引起)
+         <input type="radio" name="HOW" value="acutely"> 急性地(無外物引起)
+         <input type="radio" name="HOW" value="incidiously"> 隱隱作痛地
+         <br>對什麼刺激特別敏感?
+         <input type="radio" name="PROVOCATION" value="of extreme sensitivity to cold" checked> 冰或冷
+         <input type="radio" name="PROVOCATION" value="of extreme sensitivity to heat"> 熱
+         <input type="radio" name="PROVOCATION" value="of that spontaneous pain"> 無,自發性疼痛
+         <br>疼痛的程度如何?
+         <input type="radio" name="PAINLEVEL" value="sharp" checked> 劇痛
+         <input type="radio" name="PAINLEVEL" value="dull"> 悶痛
+         <input type="radio" name="PAINLEVEL" value="throbing"> 陣痛
+      </fieldset>
+      <br>
+      <p><button type='submit'>確定</button></p>
+   </form>
+</body>
+
+
